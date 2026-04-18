@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movieapp/screens/home_screen.dart';
+import 'package:movieapp/screens/navigation.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -17,7 +18,7 @@ class _LoginScreenState extends State<LoginScreen> {
     Navigator.pushReplacement(
       context, 
       MaterialPageRoute(
-        builder: (_)=>HomeScreen()));  
+        builder: (_)=>MainScreen()));  
   }
   @override
   Widget build(BuildContext context) {

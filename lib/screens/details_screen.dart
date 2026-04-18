@@ -40,120 +40,207 @@ class _DetailsScreenState extends State<DetailsScreen> {
     }
   }
 
-  void downloadMovie() {
-    ScaffoldMessenger.of(context).showSnackBar(
-       SnackBar(
-        content: Text("Downloading..."),
-      ),
-    );
-
-  }
-
   @override
   Widget build(BuildContext context) {
     final movie = widget.movie;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(movie["title"]),
-
-        actions: [
-          IconButton(
-            icon: Icon(
-              isFavorite ? Icons.favorite : Icons.favorite_border,
-              color: const Color.fromARGB(255, 214, 47, 35),
-            ),
-            onPressed: toggleFavorite,
-          ),
-
-          IconButton(
-            icon:  Icon(Icons.download_outlined),
-            onPressed: downloadMovie,
-          ),
-        ],
-      ),
+      backgroundColor: const Color(0xFF15131E),
 
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
 
-            Image.network(
-              movie["image"],
-              width: double.infinity,
-              height: 350,
-              fit: BoxFit.cover,
+            // 🔥 IMAGE + GRADIENT
+          Stack(
+  children: [
+    Image.network(
+      movie["image"],
+      height: 300,
+      width: double.infinity,
+      fit: BoxFit.cover,
+    ),
+
+    Container(
+      height: 300,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            Colors.black.withOpacity(0.3),
+            Colors.transparent,
+            Colors.black.withOpacity(0.8),
+          ],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+        ),
+      ),
+    ),
+
+    // 🔙 BACK BUTTON
+    Positioned(
+      top: 40,
+      left: 10,
+      child: IconButton(
+        icon: const Icon(Icons.arrow_back, color: Colors.white),
+        onPressed: () => Navigator.pop(context),
+      ),
+    ),
+
+    // ❤️ FAVORITE BUTTON
+    Positioned(
+      top: 40,
+      right: 10,
+      child: IconButton(
+        icon: Icon(
+          isFavorite ? Icons.favorite : Icons.favorite_border,
+          color: Colors.red,
+        ),
+        onPressed: toggleFavorite,
+      ),
+    ),
+
+    // ▶️ PLAY BUTTON (CENTER)
+    Positioned.fill(
+      child: Center(
+        child: GestureDetector(
+          onTap: () {
+            // 👉 later you can open video player here
+          },
+          child: Container(
+            padding: const EdgeInsets.all(15),
+            decoration: BoxDecoration(
+              color: Colors.black54,
+              shape: BoxShape.circle,
             ),
+            child: const Icon(
+              Icons.play_arrow,
+              color: Colors.white,
+              size: 40,
+            ),
+          ),
+        ),
+      ),
+    ),
 
-             SizedBox(height: 10),
+    // 🎬 TITLE
+    Positioned(
+      bottom: 20,
+      left: 15,
+      child: Text(
+        movie["title"],
+        style: const TextStyle(
+          color: Colors.white,
+          fontSize: 26,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    ),
+  ],
+),
 
+            const SizedBox(height: 15),
+
+            // ⏱ RUNTIME + RATING
             Padding(
-              padding:  EdgeInsets.all(10),
-              child: Text(
-                movie["title"],
-                style:  TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Row(
+                children: [
+                  const Icon(Icons.access_time, color: Colors.grey, size: 16),
+                  const SizedBox(width: 5),
+                  const Text(
+                    "152 min",
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                  const SizedBox(width: 10),
+                  const CircleAvatar(radius: 2, backgroundColor: Colors.grey),
+                  const SizedBox(width: 10),
+                  const Text(
+                    "IMDb",
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                  const SizedBox(width: 5),
+                  Text(
+                    movie["rating"] ?? "7.0",
+                    style: const TextStyle(color: Colors.grey),
+                  ),
+                ],
               ),
             ),
 
+            const SizedBox(height: 15),
+
+            // 🎭 GENRE
             Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 10),
-              child: Text(
-                "Genre: ${movie["genre"]}",
-                style:  TextStyle(color: const Color.fromARGB(255, 205, 118, 118)),
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Row(
+                children: [
+                  const Text(
+                    "Genre: ",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  Text(
+                    movie["genre"] ?? "Action",
+                    style: const TextStyle(color: Colors.grey),
+                  ),
+                ],
               ),
             ),
 
-             SizedBox(height: 10),
+            const SizedBox(height: 20),
 
-             Padding(
-              padding: EdgeInsets.all(10),
+            // 📖 ABOUT
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 15),
               child: Text(
-                "About",
+                "Synopsis",
                 style: TextStyle(
+                  color: Colors.white,
                   fontSize: 18,
-                  fontWeight: FontWeight.bold,
                 ),
               ),
             ),
 
+            const SizedBox(height: 10),
+
             Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 15),
               child: Text(
-                movie["about"],
-                style:  TextStyle(fontSize: 15, height: 1.5),
+                movie["about"] ?? "",
+                style: const TextStyle(
+                  color: Colors.grey,
+                  height: 1.5,
+                ),
               ),
             ),
-             SizedBox(height: 20),
 
-             Padding(
-              padding: EdgeInsets.all(10),
+            const SizedBox(height: 20),
+
+            // 🎭 CAST
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 15),
               child: Text(
                 "Cast",
                 style: TextStyle(
+                  color: Colors.white,
                   fontSize: 18,
-                  fontWeight: FontWeight.bold,
                 ),
               ),
             ),
+
+            const SizedBox(height: 10),
+
             Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 10),
-              child: Wrap(
-                spacing: 8,
-                runSpacing: 8,
-                children: List.generate(
-                  (movie["cast"] as List).length,
-                  (index) {
-                    return Chip(
-                      label: Text(movie["cast"][index]),
-                    );
-                  },
-                ),
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Text(
+                movie["cast"] != null
+                    ? movie["cast"].join(", ")
+                    : "No cast available",
+                style: const TextStyle(color: Colors.grey),
               ),
             ),
-             SizedBox(height: 30),
+
+            const SizedBox(height: 30),
           ],
         ),
       ),

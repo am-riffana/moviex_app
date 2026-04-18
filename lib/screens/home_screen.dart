@@ -1,231 +1,319 @@
 import 'package:flutter/material.dart';
 import 'details_screen.dart';
-import 'favorites_screen.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
 
-class _HomeScreenState extends State<HomeScreen> {
+class HomeScreen extends StatelessWidget {
+  HomeScreen({super.key});
 
-  final List<Map<String, dynamic>> movies = const [
-  {
-    "title": "Inception",
-    "image": "https://image.tmdb.org/t/p/w500/8IB2e4r4oVhHnANbnm7O3Tj6tF8.jpg",
-    "genre": "Sci-Fi",
-    "about":
-        "Inception is a mind-bending sci-fi thriller directed by Christopher Nolan. The story follows Dom Cobb, a skilled thief who enters the dreams of others to steal secrets. He is offered a chance to have his criminal record erased if he can successfully plant an idea into someone's subconscious mind — a process known as inception. As the team dives deeper into layered dreams, reality begins to blur, leading to emotional struggles, intense action, and psychological twists.",
-    "cast": ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Elliot Page", "Tom Hardy"]
-  },
-  {
-    "title": "Interstellar",
-    "image": "https://image.tmdb.org/t/p/w500/rAiYTfKGqDCRIIqo664sY9XZIvQ.jpg",
-    "genre": "Sci-Fi",
-    "about":
-        "Interstellar is an epic science fiction film that explores space travel, love, and survival. Earth is becoming uninhabitable, so a group of astronauts travels through a wormhole near Saturn in search of a new home for humanity. The story focuses on Cooper, a former pilot who leaves his family behind to save mankind. The movie beautifully blends emotional family drama with complex scientific concepts like relativity and black holes.",
-    "cast": ["Matthew McConaughey", "Anne Hathaway", "Jessica Chastain", "Michael Caine"]
-  },
-  {
-    "title": "Avengers",
-    "image": "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
-    "genre": "Action",
-    "about":
-        "The Avengers brings together Earth's mightiest heroes to fight powerful enemies that no single hero can defeat. When Loki threatens to take over Earth using an alien army, Nick Fury assembles Iron Man, Captain America, Thor, Hulk, Black Widow, and Hawkeye. The film showcases teamwork, sacrifice, and epic battles that define the Marvel Cinematic Universe.",
-    "cast": ["Robert Downey Jr.", "Chris Evans", "Chris Hemsworth", "Scarlett Johansson"]
-  },
-  {
-    "title": "Joker",
-    "image": "https://image.tmdb.org/t/p/w500/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg",
-    "genre": "Drama",
-    "about":
-        "Joker is a dark psychological drama that explores the origin of Gotham City's most infamous villain. Arthur Fleck, a struggling comedian with mental health issues, faces constant rejection and cruelty from society. As his life spirals out of control, he transforms into the Joker, symbolizing chaos and rebellion against social injustice.",
-    "cast": ["Joaquin Phoenix", "Robert De Niro", "Zazie Beetz"]
-  },
-  {
-    "title": "John Wick",
-    "image": "https://image.tmdb.org/t/p/w500/fZPSd91yGE9fCcCe6OoQr6E3Bev.jpg",
-    "genre": "Action",
-    "about":
-        "John Wick is a stylish action thriller about a retired assassin who is forced back into the criminal underworld after the loss of something deeply personal. Known for its intense fight choreography and gun-fu action style, the film follows Wick as he takes revenge against those who wronged him, facing dangerous organizations and elite killers.",
-    "cast": ["Keanu Reeves", "Ian McShane", "Willem Dafoe"]
-  },
+  final List<Map<String, dynamic>> movies = [
+    {
+  "title": "Stranger Things",
+  "image": "https://i.guim.co.uk/img/media/344f3917f3e40dbb745e498dd31ab84e4b098981/0_901_3000_2400/master/3000.jpg?width=1300&dpr=2&s=none&crop=none",
+  "genre": "Sci-Fi / Horror",
+  "about": "Stranger Things is a thrilling series set in the 1980s, where a group of kids uncover mysterious government experiments and supernatural forces in their small town. When a boy disappears, strange events begin to unfold, including the appearance of a girl with telekinetic powers. The story blends friendship, adventure, and horror elements.",
+  "cast": ["Millie Bobby Brown", "Finn Wolfhard", "David Harbour", "Winona Ryder"]
+},
+{
+  "title": "Avatar",
+  "image": "https://upload.wikimedia.org/wikipedia/en/d/d6/Avatar_%282009_film%29_poster.jpg",
+  "genre": "Sci-Fi / Adventure",
+  "about": "Avatar is set on the alien planet Pandora, where humans are mining valuable resources. Jake Sully, a disabled marine, uses an avatar body to interact with the native Na’vi people. As he becomes part of their world, he must choose between his mission and protecting the planet.",
+  "cast": ["Sam Worthington", "Zoe Saldana", "Sigourney Weaver", "Stephen Lang"]
+},
+{
+  "title": "Avengers",
+  "image": "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
+  "genre": "Action / Superhero",
+  "about": "The Avengers brings together Earth's strongest heroes to stop Loki and his alien army from taking over the world. Led by Nick Fury, Iron Man, Captain America, Thor, Hulk, Black Widow, and Hawkeye must learn to work as a team to save humanity.",
+  "cast": ["Robert Downey Jr.", "Chris Evans", "Chris Hemsworth", "Scarlett Johansson"]
+},
+{
+  "title": "Joker",
+  "image": "https://image.tmdb.org/t/p/w500/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg",
+  "genre": "Drama / Thriller",
+  "about": "Joker is a dark psychological story about Arthur Fleck, a struggling comedian who is ignored by society. As he faces rejection and mental health struggles, he slowly transforms into the infamous Joker, becoming a symbol of chaos in Gotham City.",
+  "cast": ["Joaquin Phoenix", "Robert De Niro", "Zazie Beetz"]
+},
+    {
+  "title": "Deadpool",
+  "image": "https://image.tmdb.org/t/p/w500/3E53WEZJqP6aM84D8CckXx4pIHw.jpg",
+  "genre": "Action",
+  "about": "A wisecracking mercenary gains superpowers and seeks revenge.",
+  "cast": ["Ryan Reynolds", "Morena Baccarin", "T.J. Miller"]
+},
+{
+  "title": "Doctor Strange in the Multiverse of Madness",
+  "image": "https://image.tmdb.org/t/p/w500/9Gtg2DzBhmYamXBS1hKAhiwbBKS.jpg",
+  "genre": "Fantasy",
+  "about": "Doctor Strange explores dangerous alternate realities in the multiverse.",
+  "cast": ["Benedict Cumberbatch", "Elizabeth Olsen"]
+},
+{
+  "title": "Black Widow",
+  "image": "https://image.tmdb.org/t/p/w500/qAZ0pzat24kLdO3o8ejmbLxyOac.jpg",
+  "genre": "Action",
+  "about": "Natasha Romanoff confronts her past and unfinished business.",
+  "cast": ["Scarlett Johansson", "Florence Pugh"]
+},
+{
+  "title": "Shang-Chi",
+  "image": "https://image.tmdb.org/t/p/w500/1BIoJGKbXjdFDAqUEiA2VHqkK1Z.jpg",
+  "genre": "Action",
+  "about": "A young man must face his past when he is drawn into the Ten Rings organization.",
+  "cast": ["Simu Liu", "Awkwafina"]
+},
+{
+  "title": "The Batman",
+  "image": "https://image.tmdb.org/t/p/w500/74xTEgt7R36Fpooo50r9T25onhq.jpg",
+  "genre": "Action",
+  "about": "Batman uncovers corruption in Gotham while hunting a serial killer known as the Riddler.",
+  "cast": ["Robert Pattinson", "Zoë Kravitz"]
+},
+{
+  "title": "Aquaman",
+  "image": "https://image.tmdb.org/t/p/w500/5Kg76ldv7VxeX9YlcQXiowHgdX6.jpg",
+  "genre": "Fantasy",
+  "about": "Arthur Curry must embrace his destiny as king of Atlantis.",
+  "cast": ["Jason Momoa", "Amber Heard"]
+},
 
-  {
-    "title": "The Dark Knight",
-    "image": "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
-    "genre": "Action",
-    "about":
-        "The Dark Knight is a gripping superhero film where Batman faces his greatest challenge yet — the Joker. The Joker brings chaos to Gotham City, testing Batman’s limits, morals, and sense of justice. As crime rises and fear spreads, Batman must decide how far he is willing to go to save the city without becoming a monster himself.",
-    "cast": ["Christian Bale", "Heath Ledger", "Aaron Eckhart", "Michael Caine"]
-  },
-  {
-    "title": "Doctor Strange",
-    "image": "https://image.tmdb.org/t/p/w500/uGBVj3bEbCoZbDjjl9wTxcygko1.jpg",
-    "genre": "Fantasy",
-    "about":
-        "Doctor Strange follows the journey of Stephen Strange, a talented but arrogant surgeon whose life changes after a devastating accident. Searching for healing, he discovers the world of magic and alternate dimensions. He becomes a powerful sorcerer and learns to protect Earth from mystical threats beyond human understanding.",
-    "cast": ["Benedict Cumberbatch", "Rachel McAdams", "Chiwetel Ejiofor", "Benedict Wong"]
-  },
-  {
-    "title": "Black Panther",
-    "image": "https://image.tmdb.org/t/p/w500/uxzzxijgPIY7slzFvMotPv8wjKA.jpg",
-    "genre": "Action",
-    "about":
-        "Black Panther tells the story of T’Challa, who returns to Wakanda after his father’s death to take the throne. As the new king, he must protect his advanced nation from enemies who seek its powerful resources. He faces internal and external threats while learning what it truly means to be a leader and protector.",
-    "cast": ["Chadwick Boseman", "Michael B. Jordan", "Lupita Nyong'o", "Danai Gurira"]
-  },
-  {
-    "title": "Thor",
-    "image": "https://image.tmdb.org/t/p/w500/prSfAi1xGrhLQNxVSUFh61xQ4Qy.jpg",
-    "genre": "Fantasy",
-    "about":
-        "Thor is the story of the powerful god of thunder who is cast out of Asgard for his arrogance. Stripped of his powers and sent to Earth, he learns humility and what it means to be worthy. Meanwhile, dark forces threaten both Earth and Asgard, forcing Thor to rise as a true hero.",
-    "cast": ["Chris Hemsworth", "Natalie Portman", "Tom Hiddleston", "Anthony Hopkins"]
-  },
-  {
-    "title": "Iron Man",
-    "image": "https://image.tmdb.org/t/p/w500/78lPtwv72eTNqFW9COBYI0dWDJa.jpg",
-    "genre": "Action",
-    "about":
-        "Iron Man follows Tony Stark, a billionaire genius who is kidnapped and forced to build a weapon. Instead, he creates a powerful armored suit and escapes. Realizing the destruction caused by his company’s weapons, he decides to become a hero and protect the world using his technology.",
-    "cast": ["Robert Downey Jr.", "Gwyneth Paltrow", "Jeff Bridges", "Jon Favreau"]
-  },
-  {
-    "title": "Avatar",
-    "image": "https://image.tmdb.org/t/p/w500/kyeqWdyUXW608qlYkRqosgbbJyK.jpg",
-    "genre": "Sci-Fi",
-    "about":
-        "Avatar is set on the alien world of Pandora, where humans mine valuable resources. A paraplegic marine named Jake Sully is sent to interact with the native Na’vi people using an avatar body. As he connects with their culture, he is forced to choose between loyalty to humans and protecting Pandora.",
-    "cast": ["Sam Worthington", "Zoe Saldana", "Sigourney Weaver", "Stephen Lang"]
-  },
-  {
-    "title": "Frozen",
-    "image": "https://image.tmdb.org/t/p/w500/mbPrrbt8bSLcHSBCHnRclPlMZPl.jpg",
-    "genre": "Animation",
-    "about":
-        "Frozen tells the story of two royal sisters, Elsa and Anna. Elsa has magical ice powers she struggles to control, which accidentally traps the kingdom in eternal winter. Anna embarks on a journey to bring her sister back and save their home, discovering the power of love and family.",
-    "cast": ["Idina Menzel", "Kristen Bell", "Jonathan Groff", "Josh Gad"]
-  },
-  {
-    "title": "Minions",
-    "image": "https://image.tmdb.org/t/p/w500/vlOgaxUiMOA8sPDG9n3VhQabnEi.jpg",
-    "genre": "Comedy",
-    "about":
-        "Minions follows the funny yellow creatures who have existed since the beginning of time, always searching for the most evil master to serve. Their journey takes them through different eras, leading to chaotic and hilarious adventures as they try to find their purpose in the world.",
-    "cast": ["Pierre Coffin", "Sandra Bullock", "Jon Hamm", "Michael Keaton"]
-  },
-  {
-    "title": "Fast & Furious",
-    "image": "https://image.tmdb.org/t/p/w500/2DyEk84XnbJEdPlGF43crxfdtHH.jpg",
-    "genre": "Action",
-    "about":
-        "Fast & Furious is an action-packed franchise centered around street racing, family bonds, and dangerous missions. Dominic Toretto and his crew take on global threats, performing high-speed stunts and risky heists. The series emphasizes loyalty, teamwork, and adrenaline-fueled action.",
-    "cast": ["Vin Diesel", "Paul Walker", "Michelle Rodriguez", "Dwayne Johnson"]
-  },
-  {
-    "title": "The Lion King",
-    "image": "https://image.tmdb.org/t/p/w500/2bXbqYdUdNVa8VIWXVfclP2ICtT.jpg",
-    "genre": "Animation",
-    "about":
-        "The Lion King follows Simba, a young lion prince who must take his rightful place as king. After the tragic loss of his father, Simba runs away in fear. With guidance from new friends, he learns responsibility and courage, eventually returning to reclaim his throne.",
-    "cast": ["Matthew Broderick", "James Earl Jones", "Jeremy Irons", "Nathan Lane"]
-  },
-  {
-    "title": "Venom",
-    "image": "https://image.tmdb.org/t/p/w500/2uNW4WbgBXL25BAbXGLnLqX71Sw.jpg",
-    "genre": "Action",
-    "about":
-        "Venom tells the story of Eddie Brock, a journalist who becomes bonded with an alien symbiote. The symbiote gives him superhuman powers but also has its own dark personality. Together, they must learn to coexist while fighting dangerous enemies.",
-    "cast": ["Tom Hardy", "Michelle Williams", "Riz Ahmed", "Woody Harrelson"]
-  }
-];
 
-  String searchText = "";
+{
+  "title": "The Matrix",
+  "image": "https://image.tmdb.org/t/p/w500/aOIuZAjPaRIE6CMzbazvcHuHXDc.jpg",
+  "genre": "Sci-Fi",
+  "about": "A hacker discovers reality is a simulation and joins a rebellion.",
+  "cast": ["Keanu Reeves", "Laurence Fishburne"]
+},
+
+{
+  "title": "The Conjuring",
+  "image": "https://image.tmdb.org/t/p/w500/wVYREutTvI2tmxr6ujrHT704wGF.jpg",
+  "genre": "Horror",
+  "about": "Paranormal investigators help a family terrorized by dark forces.",
+  "cast": ["Patrick Wilson", "Vera Farmiga"]
+},
+{
+  "title": "It",
+  "image": "https://image.tmdb.org/t/p/w500/9E2y5Q7WlCVNEhP5GiVTjhEhx1o.jpg",
+  "genre": "Horror",
+  "about": "A group of kids face a shape-shifting clown that feeds on fear.",
+  "cast": ["Bill Skarsgård", "Finn Wolfhard"]
+},
+  ];
+
+  final List<Map<String, dynamic>> trendingMovies = [
+    {
+      "title": "Oppenheimer",
+      "image": "https://image.tmdb.org/t/p/w500/ptpr0kGAckfQkJeJIt8st5dglvd.jpg",
+      "rating": "8.5"
+    },
+    {
+      "title": "Dune",
+      "image": "https://image.tmdb.org/t/p/w500/d5NXSklXo0qyIYkgV94XAgMIckC.jpg",
+      "rating": "8.1"
+    },
+    {
+      "title": "Batman",
+      "image": "https://image.tmdb.org/t/p/w500/74xTEgt7R36Fpooo50r9T25onhq.jpg",
+      "rating": "7.9"
+    },
+    {
+  "title": "Spider-Man: No Way Home",
+  "image": "https://image.tmdb.org/t/p/w500/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg",
+  "genre": "Action",
+  "about": "Peter Parker seeks help from Doctor Strange after his identity is revealed, but things go wrong and villains from other universes enter his world.",
+  "cast": ["Tom Holland", "Zendaya", "Benedict Cumberbatch"]
+},
+{
+  "title": "Captain America: Civil War",
+  "image": "https://image.tmdb.org/t/p/w500/rAGiXaUfPzY7CDEyNKUofk3Kw2e.jpg",
+  "genre": "Action",
+  "about": "The Avengers are divided into two factions led by Iron Man and Captain America over government control.",
+  "cast": ["Chris Evans", "Robert Downey Jr.", "Scarlett Johansson"]
+},
+{
+  "title": "Guardians of the Galaxy",
+  "image": "https://image.tmdb.org/t/p/w500/r7vmZjiyZw9rpJMQJdXpjgiCOk9.jpg",
+  "genre": "Sci-Fi",
+  "about": "A group of intergalactic criminals must work together to stop a powerful villain.",
+  "cast": ["Chris Pratt", "Zoe Saldana", "Dave Bautista"]
+},
+  ];
 
   @override
   Widget build(BuildContext context) {
-
-    final filteredMovies = movies.where((movie) {
-      return movie["title"]!
-          .toLowerCase()
-          .contains(searchText.toLowerCase());
-    }).toList();
-
     return Scaffold(
-      appBar: AppBar(
-        title:  Text("MOVIEX"),
-        actions: [
-          IconButton(
-            icon:  Icon(Icons.favorite),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (_) =>  FavoritesScreen()),
-              );
-            },
-          )
-        ],
-      ),
+      backgroundColor: const Color.fromARGB(255, 0, 0, 0),
+      appBar: AppBar(backgroundColor: const Color.fromARGB(255, 0, 0, 0),
+      title: Text('MOVIEX'),),
 
-      body: Column(
-        children: [
-          Padding(
-            padding:  EdgeInsets.all(10),
-            child: TextField(
-              onChanged: (value) {
-                setState(() {
-                  searchText = value;
-                });
-              },
-              decoration:  InputDecoration(
-                hintText: "Search movies...",
-                prefixIcon: Icon(Icons.search),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(18),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+
+              Stack(
+                children: [
+                  Container(
+                    
+
+                    height: 220,
+                    width: double.infinity,
+                    
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: NetworkImage(
+                          movies[0]["image"],
+                        ),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+
+                  Container(
+                    height: 220,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          const Color.fromARGB(255, 0, 0, 0).withOpacity(0.7),
+                          Colors.transparent
+                        ],
+                        begin: Alignment.bottomCenter,
+                        end: Alignment.topCenter,
+                      ),
+                    ),
+                  ),
+
+                  Positioned(
+                    bottom: 20,
+                    left: 15,
+                    child: Text(
+                      movies[0]["title"],
+                      style:  TextStyle(
+                        color: Colors.white,
+                        fontSize: 26,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+
+              const SizedBox(height: 20),
+
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 15),
+                child: Text(
+                  "Trending 🔥",
+                  style: TextStyle(color: Colors.white, fontSize: 20),
                 ),
               ),
-            ),
-          ),
 
-          Expanded(
-            child: GridView.builder(
-              itemCount: filteredMovies.length,
-              gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                childAspectRatio: 0.65,
-              ),
-              itemBuilder: (context, index) {
-                final movie = filteredMovies[index];
-                return GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => DetailsScreen(movie: movie),
+               SizedBox(height: 10),
+
+              SizedBox(
+                height: 200,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: trendingMovies.length,
+                  itemBuilder: (context, index) {
+                    final movie = trendingMovies[index];
+
+                    return Container(
+                      width: 140,
+                      margin: const EdgeInsets.only(left: 15),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child: Image.network(
+                          movie["image"],
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     );
                   },
-                  child: Card(
-                    child: Column(
-                      children: [
-                        Expanded(
-                          child: Image.network(
-                            movie["image"]!,
-                            fit: BoxFit.cover,
-                          ),
+                ),
+              ),
+
+              const SizedBox(height: 20),
+
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 15),
+                child: Text(
+                  "All Movies",
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
+              ),
+
+              const SizedBox(height: 10),
+
+              GridView.builder(
+                padding:  EdgeInsets.all(15),
+                shrinkWrap: true,
+                physics:  NeverScrollableScrollPhysics(),
+                itemCount: movies.length,
+                gridDelegate:
+                     SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount:2,
+                  childAspectRatio: 0.8,
+                  crossAxisSpacing: 13,
+                  mainAxisSpacing: 13,
+                ),
+                itemBuilder: (context, index) {
+                  final movie = movies[index];
+
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => DetailsScreen(movie: movie),
                         ),
-                        Text(movie["title"]!),
-                      ],
+                      );
+                    },
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(15),
+                      child: Stack(
+                        children: [
+                          Image.network(
+                            movie["image"],
+                            fit: BoxFit.cover,
+                            width: double.infinity,
+                          ),
+
+                          Container(
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  Colors.transparent,
+                                  Colors.black.withOpacity(0.8)
+                                ],
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                              ),
+                            ),
+                          ),
+
+                          Positioned(
+                            bottom: 8,
+                            left: 8,
+                            child: Text(
+                              movie["title"],
+                              style:
+                                  const TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                );
-              },
-            ),
+                  );
+                },
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
