@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'details_screen.dart';
-
-
-
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
@@ -77,8 +74,6 @@ class HomeScreen extends StatelessWidget {
   "about": "Arthur Curry must embrace his destiny as king of Atlantis.",
   "cast": ["Jason Momoa", "Amber Heard"]
 },
-
-
 {
   "title": "The Matrix",
   "image": "https://image.tmdb.org/t/p/w500/aOIuZAjPaRIE6CMzbazvcHuHXDc.jpg",
@@ -86,7 +81,6 @@ class HomeScreen extends StatelessWidget {
   "about": "A hacker discovers reality is a simulation and joins a rebellion.",
   "cast": ["Keanu Reeves", "Laurence Fishburne"]
 },
-
 {
   "title": "The Conjuring",
   "image": "https://image.tmdb.org/t/p/w500/wVYREutTvI2tmxr6ujrHT704wGF.jpg",
@@ -141,48 +135,28 @@ class HomeScreen extends StatelessWidget {
   "cast": ["Chris Pratt", "Zoe Saldana", "Dave Bautista"]
 },
   ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 0, 0, 0),
       appBar: AppBar(backgroundColor: const Color.fromARGB(255, 0, 0, 0),
       title: Text('MOVIEX'),),
-
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-
               Stack(
                 children: [
                   Container(
-                    
-
                     height: 220,
                     width: double.infinity,
-                    
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: NetworkImage(
                           movies[0]["image"],
                         ),
                         fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-
-                  Container(
-                    height: 220,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          const Color.fromARGB(255, 0, 0, 0).withOpacity(0.7),
-                          Colors.transparent
-                        ],
-                        begin: Alignment.bottomCenter,
-                        end: Alignment.topCenter,
                       ),
                     ),
                   ),
@@ -202,9 +176,9 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
 
-              const SizedBox(height: 20),
+               SizedBox(height: 20),
 
-              const Padding(
+               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 child: Text(
                   "Trending 🔥",
@@ -237,9 +211,9 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: 20),
+               SizedBox(height: 20),
 
-              const Padding(
+               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 child: Text(
                   "All Movies",
@@ -247,8 +221,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: 10),
-
+               SizedBox(height: 10),
               GridView.builder(
                 padding:  EdgeInsets.all(15),
                 shrinkWrap: true,
@@ -263,7 +236,6 @@ class HomeScreen extends StatelessWidget {
                 ),
                 itemBuilder: (context, index) {
                   final movie = movies[index];
-
                   return GestureDetector(
                     onTap: () {
                       Navigator.push(
@@ -282,27 +254,13 @@ class HomeScreen extends StatelessWidget {
                             fit: BoxFit.cover,
                             width: double.infinity,
                           ),
-
-                          Container(
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: [
-                                  Colors.transparent,
-                                  Colors.black.withOpacity(0.8)
-                                ],
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                              ),
-                            ),
-                          ),
-
                           Positioned(
-                            bottom: 8,
-                            left: 8,
+                            bottom: 9,
+                            left: 9,
                             child: Text(
                               movie["title"],
                               style:
-                                  const TextStyle(color: Colors.white),
+                                   TextStyle(color: Colors.white),
                             ),
                           ),
                         ],

@@ -11,30 +11,33 @@ class FavoritesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title:  Text("Favorites ❤️")),
+      appBar: AppBar(title: const Text("Favorites ❤️")),
 
       body: ValueListenableBuilder(
-        valueListenable: box.listenable(), 
+        valueListenable: box.listenable(),
         builder: (context, Box box, _) {
           final movies = box.values.toList();
           final keys = box.keys.toList();
 
           if (movies.isEmpty) {
-            return  Center(child: Text("No favorites yet"));
+            return const Center(child: Text("No favorites yet"));
           }
 
           return GridView.builder(
-            padding:  EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             itemCount: movies.length,
             gridDelegate:
-                 SliverGridDelegateWithFixedCrossAxisCount(
+                const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3,
               childAspectRatio: 0.7,
               crossAxisSpacing: 10,
               mainAxisSpacing: 10,
             ),
             itemBuilder: (context, index) {
-              final movie = movies[index];
+              // ✅ IMPORTANT FIX
+              final movie =
+                  Map<String, dynamic>.from(movies[index]);
+
               final key = keys[index];
 
               return GestureDetector(
@@ -51,9 +54,12 @@ class FavoritesScreen extends StatelessWidget {
                   child: Stack(
                     children: [
                       Positioned.fill(
-                        child: Image.network(
-                          movie["image"],
-                          fit: BoxFit.cover,
+                        child: Hero(
+                          tag: movie["title"],
+                          child: Image.network(
+                            movie["image"],
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
 
@@ -90,17 +96,17 @@ class FavoritesScreen extends StatelessWidget {
                         right: 8,
                         child: GestureDetector(
                           onTap: () {
-                            box.delete(key); // 🔥 auto updates UI
+                            box.delete(key);
                           },
                           child: Container(
-                            padding:  EdgeInsets.all(6),
-                            decoration: BoxDecoration(
+                            padding: const EdgeInsets.all(6),
+                            decoration: const BoxDecoration(
                               color: Colors.black54,
                               shape: BoxShape.circle,
                             ),
-                            child:  Icon(
+                            child: const Icon(
                               Icons.delete,
-                              color: const Color.fromARGB(255, 255, 255, 255),
+                              color: Colors.white,
                               size: 20,
                             ),
                           ),

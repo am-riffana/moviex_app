@@ -20,12 +20,10 @@ class _MainScreenState extends State<MainScreen> {
     ProfileScreen(),
     SearchScreen(),
   ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: screens[currentIndex],
-
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
         onTap: (index) {
@@ -34,10 +32,9 @@ class _MainScreenState extends State<MainScreen> {
           });
         },
         type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.red,
-        unselectedItemColor: Colors.grey,
-
-        items: const [
+        selectedItemColor: const Color.fromARGB(255, 134, 32, 25),
+        unselectedItemColor: const Color.fromARGB(255, 255, 255, 255),
+        items:  [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: "Home",
@@ -53,7 +50,6 @@ class _MainScreenState extends State<MainScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.search_rounded),
             label: "search"),
-
         ],
       ),
     );

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:movieapp/screens/home_screen.dart';
 import 'package:movieapp/screens/navigation.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -55,7 +54,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
 
                  SizedBox(height: 25),
-
                 TextField(
                   controller: email,
                   style:  TextStyle(color: Colors.white),

@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'details_screen.dart';
-
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
 
   @override
   State<SearchScreen> createState() => _SearchScreenState();
 }
-
 class _SearchScreenState extends State<SearchScreen> {
   String searchText = "";
 
@@ -85,9 +83,7 @@ class _SearchScreenState extends State<SearchScreen> {
   "about": "Dinosaurs are brought back to life in a theme park.",
   "cast": ["Sam Neill", "Jeff Goldblum"]
 },
-    // 👉 you can paste full list here
   ];
-
   @override
   Widget build(BuildContext context) {
     final filteredMovies = movies.where((movie) {
@@ -95,14 +91,11 @@ class _SearchScreenState extends State<SearchScreen> {
           .toLowerCase()
           .contains(searchText.toLowerCase());
     }).toList();
-
     return Scaffold(
-      backgroundColor: const Color(0xFF15131E),
-
+      backgroundColor: const Color.fromARGB(255, 0, 0, 0),
       appBar: AppBar(
-        title: const Text("Search"),
+        title:  Text("Search"),
       ),
-
       body: Column(
         children: [
           // 🔍 SEARCH FIELD
@@ -116,17 +109,15 @@ class _SearchScreenState extends State<SearchScreen> {
               },
               decoration: InputDecoration(
                 hintText: "Search movies...",
-                prefixIcon: const Icon(Icons.search),
+                prefixIcon:  Icon(Icons.search_outlined),
                 filled: true,
-                fillColor: Colors.white10,
+                fillColor: const Color.fromARGB(255, 104, 46, 46),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(15),
-                  borderSide: BorderSide.none,
                 ),
               ),
             ),
           ),
-
           // 🎬 RESULTS
           Expanded(
             child: filteredMovies.isEmpty
@@ -148,7 +139,6 @@ class _SearchScreenState extends State<SearchScreen> {
                     ),
                     itemBuilder: (context, index) {
                       final movie = filteredMovies[index];
-
                       return GestureDetector(
                         onTap: () {
                           Navigator.push(
@@ -168,7 +158,6 @@ class _SearchScreenState extends State<SearchScreen> {
                                 fit: BoxFit.cover,
                                 width: double.infinity,
                               ),
-
                               Container(
                                 decoration: BoxDecoration(
                                   gradient: LinearGradient(
@@ -181,7 +170,6 @@ class _SearchScreenState extends State<SearchScreen> {
                                   ),
                                 ),
                               ),
-
                               Positioned(
                                 bottom: 8,
                                 left: 8,

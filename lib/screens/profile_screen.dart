@@ -8,35 +8,27 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Profile"),
-        backgroundColor: Colors.black,
+        title:  Text("Profile"),
+        backgroundColor: const Color.fromARGB(255, 0, 0, 0),
       ),
-
       body: Padding(
-        padding: const EdgeInsets.all(20),
+        padding:  EdgeInsets.all(20),
         child: Column(
           children: [
-
-            const SizedBox(height: 20),
-
+             SizedBox(height: 20),
            CircleAvatar(
-  radius: 50,
-  backgroundImage: AssetImage("assets/profile.jpeg"),
-),
-
-             
-
+                   radius: 50,
+                        backgroundImage: AssetImage("assets/profile.jpeg"),
+                       ),
              SizedBox(height: 15),
-
             // 👤 NAME
-            const Text(
-              "Rifana",
+             Text(
+              "Rifana sherin",
               style: TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
               ),
             ),
-
              SizedBox(height: 5),
 
              Text(
@@ -45,7 +37,6 @@ class ProfileScreen extends StatelessWidget {
             ),
 
              SizedBox(height: 30),
-
             ListTile(
               leading:  Icon(Icons.person),
               title:  Text("Edit Profile"),
@@ -59,22 +50,19 @@ class ProfileScreen extends StatelessWidget {
               trailing:  Icon(Icons.arrow_forward_ios),
               onTap: () {},
             ),
-
             ListTile(
               leading:  Icon(Icons.info),
               title:  Text("About App"),
               trailing:  Icon(Icons.arrow_forward_ios),
               onTap: () {},
             ),
-
              Spacer(),
-
             SizedBox(
               width: double.infinity,
               height: 50,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.red,
+                  backgroundColor: const Color.fromARGB(255, 192, 45, 34),
                 ),
                 onPressed: () {
                   Navigator.pushReplacement(
@@ -86,7 +74,7 @@ class ProfileScreen extends StatelessWidget {
                 },
                 child:  Text(
                   "Logout",
-                  style: TextStyle(fontSize: 18),
+                  style: TextStyle(fontSize: 19),
                 ),
               ),
             ),
