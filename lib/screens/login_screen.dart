@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:movieapp/screens/navigation.dart';
 
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
-
 class _LoginScreenState extends State<LoginScreen> {
 
   final email=TextEditingController();
@@ -25,7 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [const Color.fromARGB(255, 0, 0, 0),const Color.fromARGB(255, 161, 0, 0)],
+            colors: [const Color.fromARGB(255, 108, 32, 32),const Color.fromARGB(255, 0, 0, 0)],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight),
         ),
@@ -35,7 +35,6 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-
                  Icon(
                   Icons.movie_sharp,
                   size: 90,
@@ -43,7 +42,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
 
                  SizedBox(height: 15),
-
                  Text(
                   "Welcome ",
                   style: TextStyle(
