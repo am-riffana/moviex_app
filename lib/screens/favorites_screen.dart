@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'details_screen.dart';
 
@@ -11,33 +10,31 @@ class FavoritesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Favorites ❤️")),
-
+      appBar: AppBar(title:  Text("Favorites ❤️")),
       body: ValueListenableBuilder(
         valueListenable: box.listenable(),
         builder: (context, Box box, _) {
+
           final movies = box.values.toList();
           final keys = box.keys.toList();
 
           if (movies.isEmpty) {
-            return const Center(child: Text("No favorites yet"));
+            return  Center(child: Text("No favorites yet"));
           }
 
           return GridView.builder(
-            padding: const EdgeInsets.all(10),
+            padding:  EdgeInsets.all(10),
             itemCount: movies.length,
             gridDelegate:
-                const SliverGridDelegateWithFixedCrossAxisCount(
+                 SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3,
               childAspectRatio: 0.7,
               crossAxisSpacing: 10,
               mainAxisSpacing: 10,
             ),
             itemBuilder: (context, index) {
-              // ✅ IMPORTANT FIX
               final movie =
                   Map<String, dynamic>.from(movies[index]);
-
               final key = keys[index];
 
               return GestureDetector(
@@ -62,22 +59,6 @@ class FavoritesScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-
-                      Positioned.fill(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [
-                                Colors.transparent,
-                                Colors.black.withOpacity(0.8),
-                              ],
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
-                            ),
-                          ),
-                        ),
-                      ),
-
                       Positioned(
                         bottom: 8,
                         left: 8,

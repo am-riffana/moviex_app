@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'home_screen.dart';
 import 'favorites_screen.dart';
-import 'profile_screen.dart';
 import 'search_screen.dart';
+import 'profile_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -16,9 +16,9 @@ class _MainScreenState extends State<MainScreen> {
   final List<Widget> screens = [
     HomeScreen(),
     FavoritesScreen(),
-    ProfileScreen(),
     SearchScreen(),
-  ];
+    ProfileScreen() 
+     ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +31,7 @@ class _MainScreenState extends State<MainScreen> {
           });
         },
         type: BottomNavigationBarType.fixed,
-        selectedItemColor: const Color.fromARGB(255, 134, 32, 25),
+        selectedItemColor: const Color.fromARGB(255, 216, 88, 79),
         unselectedItemColor: const Color.fromARGB(255, 255, 255, 255),
         items:  [
           BottomNavigationBarItem(
@@ -43,12 +43,14 @@ class _MainScreenState extends State<MainScreen> {
             label: "Favorites",
           ),
           BottomNavigationBarItem(
+            icon: Icon(Icons.search_rounded),
+            label: "search"),
+
+          BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: "Profile",
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search_rounded),
-            label: "search"),
+         
         ],
       ),
     );

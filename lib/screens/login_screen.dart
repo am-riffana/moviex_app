@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movieapp/screens/navigation.dart';
 
-
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -13,12 +12,22 @@ class _LoginScreenState extends State<LoginScreen> {
   final email=TextEditingController();
   final pass=TextEditingController();
 
-  void chechklogin(){
+ void chechklogin(){
+  if(email.text.trim().isNotEmpty && pass.text.trim().isNotEmpty){
     Navigator.pushReplacement(
       context, 
       MaterialPageRoute(
-        builder: (_)=>MainScreen()));  
+        builder: (_)=>MainScreen()
+      )
+    );
+  } else {
+    ScaffoldMessenger.of(context).showSnackBar(
+       SnackBar(
+        content: Text("Fill all fields"),backgroundColor: const Color.fromARGB(255, 215, 214, 214),
+      ),
+    );
   }
+}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,6 +75,7 @@ class _LoginScreenState extends State<LoginScreen> {
                  SizedBox(height: 25),
                  TextField(
                   controller: pass,
+                  obscureText: true,
                   style:  TextStyle(color: Colors.white),
                   decoration: InputDecoration(
                     border: OutlineInputBorder(

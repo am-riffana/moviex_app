@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'details_screen.dart';
+
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
 
@@ -157,18 +158,6 @@ class _SearchScreenState extends State<SearchScreen> {
                                 movie["image"],
                                 fit: BoxFit.cover,
                                 width: double.infinity,
-                              ),
-                              Container(
-                                decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                    colors: [
-                                      Colors.transparent,
-                                      Colors.black.withOpacity(0.8),
-                                    ],
-                                    begin: Alignment.topCenter,
-                                    end: Alignment.bottomCenter,
-                                  ),
-                                ),
                               ),
                               Positioned(
                                 bottom: 8,

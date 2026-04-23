@@ -9,7 +9,7 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title:  Text("Profile"),
-        backgroundColor: const Color.fromARGB(255, 0, 0, 0),
+        backgroundColor: const Color.fromARGB(255, 9, 1, 1),
       ),
       body: Padding(
         padding:  EdgeInsets.all(20),
@@ -17,11 +17,10 @@ class ProfileScreen extends StatelessWidget {
           children: [
              SizedBox(height: 20),
            CircleAvatar(
-                   radius: 50,
+                   radius: 70,
                         backgroundImage: AssetImage("assets/profile.jpeg"),
                        ),
              SizedBox(height: 15),
-            // 👤 NAME
              Text(
               "Rifana sherin",
               style: TextStyle(
