@@ -160,7 +160,6 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-
                   Positioned(
                     bottom: 20,
                     left: 15,
@@ -175,11 +174,10 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ],
               ),
-
                SizedBox(height: 20),
 
                Padding(
-                padding: EdgeInsets.symmetric(horizontal: 15),
+                padding: EdgeInsets.symmetric(horizontal: 20),
                 child: Text(
                   "Trending 🔥",
                   style: TextStyle(color: Colors.white, fontSize: 20),
@@ -214,14 +212,14 @@ class HomeScreen extends StatelessWidget {
                SizedBox(height: 20),
 
                Padding(
-                padding: EdgeInsets.symmetric(horizontal: 15),
+                padding: EdgeInsets.symmetric(horizontal: 20),
                 child: Text(
                   "All Movies",
                   style: TextStyle(color: Colors.white, fontSize: 20),
                 ),
               ),
 
-               SizedBox(height: 10),
+               SizedBox(height: 15),
               GridView.builder(
                 padding:  EdgeInsets.all(15),
                 shrinkWrap: true,
