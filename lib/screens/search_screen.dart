@@ -99,9 +99,8 @@ class _SearchScreenState extends State<SearchScreen> {
       ),
       body: Column(
         children: [
-          // 🔍 SEARCH FIELD
           Padding(
-            padding: const EdgeInsets.all(10),
+            padding:  EdgeInsets.all(10),
             child: TextField(
               onChanged: (value) {
                 setState(() {
@@ -119,20 +118,19 @@ class _SearchScreenState extends State<SearchScreen> {
               ),
             ),
           ),
-          // 🎬 RESULTS
           Expanded(
             child: filteredMovies.isEmpty
-                ? const Center(
+                ?  Center(
                     child: Text(
                       "No movies found 😢",
                       style: TextStyle(color: Colors.white),
                     ),
                   )
                 : GridView.builder(
-                    padding: const EdgeInsets.all(10),
+                    padding:  EdgeInsets.all(10),
                     itemCount: filteredMovies.length,
                     gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
+                         SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       childAspectRatio: 0.7,
                       crossAxisSpacing: 10,
@@ -164,7 +162,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                 left: 8,
                                 child: Text(
                                   movie["title"],
-                                  style: const TextStyle(
+                                  style:  TextStyle(
                                     color: Colors.white,
                                   ),
                                 ),

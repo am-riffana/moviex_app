@@ -210,7 +210,6 @@ class HomeScreen extends StatelessWidget {
               ),
 
                SizedBox(height: 20),
-
                Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 child: Text(
