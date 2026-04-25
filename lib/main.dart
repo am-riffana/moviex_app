@@ -1,62 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:movieapp/screens/splash_screen.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
-void main() async {
+void main()async{
   WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
 
-  await Hive.initFlutter();        // ✅ init hive
-  await Hive.openBox("favorites"); // ✅ open box BEFORE app starts
-
+  await Hive.openBox("favorites");
   runApp(MyApp());
 }
-
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-  @override
-  State<MyApp> createState() => _MyAppState();
-
-  static void setTheme(BuildContext context, bool isDark) {
-    _MyAppState? state =
-        context.findAncestorStateOfType<_MyAppState>();
-    state?.changeTheme(isDark);
-  }
-}
-
-class _MyAppState extends State<MyApp> {
-  bool isDark = true;
-
-  @override
-  void initState() {
-    super.initState();
-    loadTheme();
-  }
-
-  void loadTheme() async {
-    final prefs = await SharedPreferences.getInstance();
-    setState(() {
-      isDark = prefs.getBool("isDark") ?? true;
-    });
-  }
-
-  void changeTheme(bool value) async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool("isDark", value);
-
-    setState(() {
-      isDark = value;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-
-      theme: isDark ? ThemeData.dark() : ThemeData.light(),
-
-      home: SplashScreen(),
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: Colors.black,
+      ),
+      home:SplashScreen() ,
     );
   }
 }

@@ -196,7 +196,7 @@ class HomeScreen extends StatelessWidget {
 
                     return Container(
                       width: 140,
-                      margin: const EdgeInsets.only(left: 15),
+                      margin:  EdgeInsets.only(left: 15),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(15),
                         child: Image.network(

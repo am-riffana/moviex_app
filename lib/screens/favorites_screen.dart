@@ -65,7 +65,7 @@ class FavoritesScreen extends StatelessWidget {
                         right: 8,
                         child: Text(
                           movie["title"],
-                          style: const TextStyle(
+                          style:  TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                           ),
@@ -80,12 +80,12 @@ class FavoritesScreen extends StatelessWidget {
                             box.delete(key);
                           },
                           child: Container(
-                            padding: const EdgeInsets.all(6),
-                            decoration: const BoxDecoration(
+                            padding:  EdgeInsets.all(6),
+                            decoration:  BoxDecoration(
                               color: Colors.black54,
                               shape: BoxShape.circle,
                             ),
-                            child: const Icon(
+                            child:  Icon(
                               Icons.delete,
                               color: Colors.white,
                               size: 20,
