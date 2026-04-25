@@ -27,6 +27,8 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: const Color.fromARGB(255, 9, 0, 0),
       body: Center(
         child: Image.asset("assets/movie.png",height: 300,),
+
+
       ),
     );
   }
