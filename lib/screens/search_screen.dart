@@ -84,7 +84,7 @@ class _SearchScreenState extends State<SearchScreen> {
   "about": "Dinosaurs are brought back to life in a theme park.",
   "cast": ["Sam Neill", "Jeff Goldblum"]
 },
-  ];
+  ]; 
   @override
   Widget build(BuildContext context) {
     final filteredMovies = movies.where((movie) {
@@ -122,7 +122,7 @@ class _SearchScreenState extends State<SearchScreen> {
             child: filteredMovies.isEmpty
                 ?  Center(
                     child: Text(
-                      "No movies found 😢",
+                      "No movies found ",
                       style: TextStyle(color: Colors.white),
                     ),
                   )
